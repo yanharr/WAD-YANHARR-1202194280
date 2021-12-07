@@ -1,3 +1,44 @@
+<?php
+    if(isset($_POST["submit"])) {
+        $name = "Yanharr_1202194280";
+        $gedung = $_POST["tipe-gedung"];
+        if ($gedung == "Nusantara Hall") {
+            $harga = 2000;
+        } elseif ($gedung == "Garuda Hall") {
+            $harga = 1000;
+        } elseif ($gedung == "Gedung serba guna") {
+            $harga = 5000;
+        }
+
+        $bookid = rand();
+        $phone = $_POST["nomor-hp"];
+        $duration = $_POST["duration"];
+        $date = $_POST["eventdate"];
+        $time = $_POST["starttime"];
+        $checkin = date('Y-m-d H:i:s',strtotime("$date $time"));
+        $checkout = date('Y-m-d H:i:s',strtotime($duration . " " . "hours", strtotime($checkin)));
+        
+        $hargaservice = 0;
+        if (empty($_POST["services"])) {
+            $hargaservice = 0;
+        }
+        else{
+            $services = $_POST["services"];
+            foreach ($services as $value) {
+                if ($value == "Catering") {
+                    $hargaservice += 700;
+                } elseif ($value == "Decoration") {
+                    $hargaservice += 450;
+                } elseif ($value == "Sound System") {
+                    $hargaservice += 250;
+                }
+            }
+        }
+        $totalharga = ($harga*$duration) + $hargaservice;    
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,43 +46,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
-
-
 <body>
-    <?php
-    if(isset($_POST["Checkout"])) {
-        $name = "Yanharr_1202194280";
-        $Gedung = $_POST["tipe-gedung"];
-        if ($gedung == "Nusantara Hall") {
-            $harga = 2000;
-        } elseif ($gedung == "Garuda Hall") {
-            $harga = 1000;
-        } elseif ($gedung == "Gedung serba guna") {
-            $harga = 500;
-        }
-
-        $bookid = rand();
-        $phone = $_POST["Nohandphone"];
-        $duration = $_POST["durasi"];
-        $date = $_POST["tanggal acara"];
-        $time = $_POST["waktu mulai"];
-        $checkin = date( strtotime("$date $time"));
-        $checkout = date(strtotime($duration . " " . "hours", strtotime($checkin)));
-        $services = $_POST["services"];
-        $hargaservice = 0;
-        foreach ($services as $value) {
-            if ($value == "Catering") {
-                $hargaservice += 700;
-            } elseif ($value == "Decoration") {
-                $hargaservice += 450;
-            } elseif ($value == "Sound System") {
-                $hargaservice += 250;
-            }
-        }
-        $totalharga = ($harga*$duration) + $hargaservice;
-    }
-    ?>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +65,8 @@
       </div>
     </nav>
 
-    <section id="MyBooking">
+    <section id="MyBooking"> <h4 class="my-2 text-center">Thank You <?=$name?> for reserving</h4>
+        <p class="py-2 bg-dark text-white text-center">Please double check your reservation!</p>
         <table class="table">
             <thead>
                 <tr>
@@ -84,12 +90,30 @@
                     <td><?=$gedung?></td>
                     <td><?=$phone?></td>
                     <td>
-
+                        <ul>
+                            <?php
+                            if (empty($_POST["services"])) {
+                                echo "No services";
+                            }
+                            else {
+                                foreach ($services as $value) {
+                                    echo "<li> $value </li>";
+                                }
+                            }
+                            ?>
+                        </ul>
                     </td>
                     <td>$<?=$totalharga?></td>
                 </tr>
             </tbody>
-
         </table>
     </section>
-</body>    
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <footer>
+      <div class="container-fluid bg-light text-dark">
+        <h1 style="text-align: center; font-size: medium;">Dibuat oleh Yanharr Alfiazi_1202194280</h1>
+      </div>
+    </footer>  
+</body>
+ 

@@ -20,7 +20,7 @@
     $harga = [
       "harga1" => "2000",
       "harga2" => "1000",
-      "harga3" => "500",
+      "harga3" => "5000",
     ]
     ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -31,7 +31,7 @@
         <div class="collapse navbar-collapse" id="navbarNav" style="text-align: center;">
           <ul class="navbar-nav mx-auto" >
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="home booking.php">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="dibooking.php">Booking</a>
@@ -50,8 +50,8 @@
         <div class="row">
 
           <div class="col-md-4">
-            <div class="card" style="width: 25rem;">
-              <img src="https://s7d2.scene7.com/is/image/ritzcarlton/50557239-RUHRZ_2018_1702?$XlargeViewport100pct$" class="card-img-bottom img-fluid" alt="...">
+            <div class="card" style="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW_yhMiknbpwSrVA8B_CvyyK9zpOh0OJpA6w&usqp=CAU" class="card-img-bottom img-fluid" alt="...">
               <div class="card-body">
                 <h5 class="card-title"><?= $gedung["gedung1"] ?></h5>
                 <p class="card-text">$<?= $harga["harga1"]?> / Hour</p>
@@ -72,7 +72,7 @@
           </div>
           
           <div class="col-md-4">
-            <div class="card" style="width: 25rem;" >
+            <div class="card" style="" >
               <img src="https://alexandra.bridestory.com/image/upload/assets/garuda-wedding-SyYglZBDN.jpg" class="card-img-top img-fluid" alt="...">
               <div class="card-body">
                 <h5 class="card-title"><?= $gedung["gedung2"] ?></h5>
@@ -94,7 +94,7 @@
           </div>
           
           <div class="col-md-4">
-            <div class="card" style="width: 25rem;" >
+            <div class="card" style="" >
               <img src="https://weddingmarket.com/storage/images/artikelidea/9088269ed9bc8422e2e40679bc37c0da10d73580.webp" class="card-img-top img-fluid" alt="...">
               <div class="card-body">
                 <h5 class="card-title"><?= $gedung["gedung3"] ?></h5>

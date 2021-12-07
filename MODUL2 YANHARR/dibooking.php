@@ -1,3 +1,23 @@
+<?php
+    if (isset($_POST["book-now"])) {
+      $data = $_POST["book-now"];
+      if ($data == "Nusantara Hall") {
+        $harga = 2000;
+        $image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW_yhMiknbpwSrVA8B_CvyyK9zpOh0OJpA6w&usqp=CAU";
+      } elseif ($data == "Garuda Hall") {
+        $harga = 1000;
+        $image = "https://alexandra.bridestory.com/image/upload/assets/garuda-wedding-SyYglZBDN.jpg";
+      } elseif ($data == "Gedung serba guna") {
+        $harga = 5000;
+        $image = "https://weddingmarket.com/storage/images/artikelidea/9088269ed9bc8422e2e40679bc37c0da10d73580.webp";
+      }
+    }
+    else {
+      $data ="choose";
+      $image ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW_yhMiknbpwSrVA8B_CvyyK9zpOh0OJpA6w&usqp=CAU";
+    }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,23 +30,8 @@
 
     <title>Booking</title>
   </head>
-  <body>
-    <?php
-    if (isset($_POST["book-now"])) {
-      $data = $_POST["book-now"];
-      if ($data == "Nusantara Hall") {
-        $harga = 2000;
-        $image = "https://s7d2.scene7.com/is/image/ritzcarlton/50557239-RUHRZ_2018_1702?$XlargeViewport100pct$";
-      } elseif ($data == "Garuda Hall") {
-        $harga = 1000;
-        $image = "https://alexandra.bridestory.com/image/upload/assets/garuda-wedding-SyYglZBDN.jpg";
-      } elseif ($data == "Gedung serba guna") {
-        $harga = 500;
-        $image = "https://weddingmarket.com/storage/images/artikelidea/9088269ed9bc8422e2e40679bc37c0da10d73580.webp";
-      }
-    }
-    ?>
 
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,10 +40,10 @@
         <div class="collapse navbar-collapse" id="navbarNav" style="text-align: center;">
           <ul class="navbar-nav mx-auto" >
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="home booking.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Booking</a>
+              <a class="nav-link" href="dibooking.php">Booking</a>
             </li>
           </ul>
         </div>
@@ -64,21 +69,24 @@
             </div>
             <div class="mb-3">
               <label for="exampleInputEventDate" class="form-label">Event Date</label>
-              <input type="date" class="form-control" id="eventDate" name="address">
+              <input type="date" class="form-control" id="eventDate" name="eventdate">
             </div>
-            
+            <div class="mb-3">
+                <label for="Start Time">Start Time</label>
+                <input type="time" class="form-control" name="starttime">
+            </div>
             <div class="mb-3">
               <label for="exampleInputDuration" class="form-label">Duration (Hours)</label>
-              <input type="time" class="form-control" id="Duration" duration="Duration">
+              <input type="number" class="form-control" id="Duration" duration="Duration" name="duration">
             </div>
 
             <div class="mb-3">
               <label class="Building-type">Building Type</label>
-              <select class="form-select" aria-label="Default select example" name="BuildingType">
-                <option selected disable>--choose--</option>
-                <option <?php if ($data == "Nusantara hall") {echo "Selected";} ?> value="Nusantara hall">Nusantara Hall</option>
-                <option <?php if ($data == "Garuda Hall") {echo "Selected";} ?> value="Nusantara Hall">Garuda Hall</option>
-                <option <?php if ($data == "Gedung serba guna") {echo "Selected";} ?> value="Nusantara Hall">Gedung serba guna</option>
+              <select class="form-control" id="Building-type" default="a" name="tipe-gedung">
+                <option>--choose--</option>
+                <option <?php if ($data == "Nusantara hall") {echo "Selected";} ?> value="Nusantara Hall">Nusantara Hall</option>
+                <option <?php if ($data == "Garuda Hall") {echo "Selected";} ?> value="Garuda Hall">Garuda Hall</option>
+                <option <?php if ($data == "Gedung serba guna") {echo "Selected";} ?> value="Gedung serba guna">Gedung serba guna</option>
               </select>
             </div>
 
@@ -90,21 +98,21 @@
             </div>
             <h>Add Service(s)</h>
 
-            <div class="mb-1 form-check">
-              <input type="checkbox" class="form-check-input" id="Catering">
-              <label class="form-check-label" for="Catering">Catering/ $700</label>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="Catering" name="services[]" value="Catering">
+              <label class="form-check-label" for="Catering" >Catering/ $700</label>
             </div>
 
-            <div class="mb-1 form-check">
-              <input type="checkbox" class="form-check-input" id="Decoration">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="Decoration" name="services[]"  value="Decoration">
               <label class="form-check-label" for="Decoration">Decoration/ $450</label>
             </div>
 
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="sound System">
-              <label class="form-check-label" for="soundSystem">Sound System/ $250</label>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="sound System" name="services[]" value="Sound System">
+              <label class="form-check-label" for="soundSystem" >Sound System/ $250</label>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
           </form>
 
         </div>
