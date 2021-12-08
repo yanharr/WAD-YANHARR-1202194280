@@ -65,55 +65,55 @@
       </div>
     </nav>
 
-    <section id="MyBooking"> <h4 class="my-2 text-center">Thank You <?=$name?> for reserving</h4>
-        <p class="py-2 bg-dark text-white text-center">Please double check your reservation!</p>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Booking Number</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Checkin</th>
-                    <th scope="col">Checkout</th>
-                    <th scope="col">Building</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Service</th>
-                    <th scope="col">Total harga</th>
+    <section id="MyBooking"> <h4 class="my-2 text-center">Thank You <?=$name?> for Reserving</h4>
+        <p class="py-2 bg-white text-dark text-center">Please double check your reservation!</p>
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Booking Number</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Checkin</th>
+                        <th scope="col">Checkout</th>
+                        <th scope="col">Building</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Service</th>
+                        <th scope="col">Total harga</th>
 
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th><?=$bookid?></th>
-                    <td><?=$name?></td>
-                    <td><?=$checkin?></td>
-                    <td><?=$checkout?></td>
-                    <td><?=$gedung?></td>
-                    <td><?=$phone?></td>
-                    <td>
-                        <ul>
-                            <?php
-                            if (empty($_POST["services"])) {
-                                echo "No services";
-                            }
-                            else {
-                                foreach ($services as $value) {
-                                    echo "<li> $value </li>";
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color:silver;">
+                        <th><?=$bookid?></th>
+                        <td><?=$name?></td>
+                        <td><?=$checkin?></td>
+                        <td><?=$checkout?></td>
+                        <td><?=$gedung?></td>
+                        <td><?=$phone?></td>
+                        <td>
+                            <ul>
+                                <?php
+                                if (empty($_POST["services"])) {
+                                    echo "No services";
                                 }
-                            }
-                            ?>
-                        </ul>
-                    </td>
-                    <td>$<?=$totalharga?></td>
-                </tr>
-            </tbody>
-        </table>
+                                else {
+                                    foreach ($services as $value) {
+                                        echo "<li> $value </li>";
+                                    }
+                                }
+                                ?>
+                            </ul>
+                        </td>
+                        <td>$<?=$totalharga?></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>    
     </section>
 
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <footer>
-      <div class="container-fluid bg-light text-dark">
-        <h1 style="text-align: center; font-size: medium;">Dibuat oleh Yanharr Alfiazi_1202194280</h1>
-      </div>
+    <footer class="footer nt-auto bg-light text-center p-3">
+        <p>Created by : Yanharr_1202194280</p>
     </footer>  
 </body>
  
