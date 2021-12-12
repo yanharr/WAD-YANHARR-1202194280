@@ -1,11 +1,14 @@
-    <?php
-        $host="localhost:3307";
-        $user="root";
-        $password="";
-        $db="modul3";
+<?php 
+    $dbhost ="localhost:3307";
+    $dbuser ="root";
+    $dbname ="modul3";
+    $dbpass ="";
 
-        $connect = mysqli_connect();
-        if (!$connect){
-            die("Koneksi gagal:".mysqli_connect_error());
-        }
-    ?>
+    
+    $connect = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
+    if(!$connect) {
+        echo "<script>
+                alert('Gagal')'
+              </script>";
+    }
+?>
