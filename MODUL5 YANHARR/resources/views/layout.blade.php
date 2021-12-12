@@ -37,8 +37,8 @@
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Kesan : Capek :)</p>
-                <p>Pesan : Ya, Capek</p>
+                <p>Kesan : Praktikum ini merupakan praktikum tercapek yang pernah saya jalani dan juga membuat mata sakit :)</p>
+                <p>Pesan : menurut saya mengerjakan modul 5 harus selesaikan modul 1-4 itu memberatkan praktikan. udah gitu aja intinya terima kasih buat asprak bang rizal udah bimbing kita semoga lancar sems akhirnyaa<a/p>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
