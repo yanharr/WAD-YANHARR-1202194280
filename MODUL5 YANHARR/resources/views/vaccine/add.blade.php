@@ -1,10 +1,10 @@
 @extends('layout')
-@section('title','Add Vaccine')
+@section('title','Add Patient')
 
 @section('main-content')
 <div class="container">
     <div class="row text-center mb-3">
-        <h3>Input Vaccine</h3>
+        <h3>Register</h3>
     </div>
     <div class="row justify-content-center">
         <div class="col-md-10">

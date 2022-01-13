@@ -1,5 +1,5 @@
     @extends('layout')
-    @section('title','Edit Vaccine')
+    @section('title','Edit Patient')
 
     @section('main-content')
     <div class="container">
